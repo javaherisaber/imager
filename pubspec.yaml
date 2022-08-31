@@ -1,6 +1,6 @@
 name: imager
 description: Flutter package to conveniently work with image widgets which comes from network, local, file and memory
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/javaherisaber/imager.git
 
 environment:
