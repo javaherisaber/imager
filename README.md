@@ -3,7 +3,7 @@
 
 Flutter package to conveniently work with image widgets which comes from network, local, file and memory
 
-[banner](banner.png)
+![banner](banner.png)
 
 ## Features
 
@@ -16,6 +16,7 @@ Flutter package to conveniently work with image widgets which comes from network
 - Mirror your image
 - Circle image
 - Choosing proper widget based on source type (eg. svg, png, gif,...)
+- Occupy defined height and width before loading the image (to avoid flicker)
 
 ## Usage
 1. To use this plugin, add [imager](https://pub.dev/packages/imager/install) as a dependency in your pubspec.yaml file.
@@ -27,7 +28,7 @@ dependencies:
 
 2. For network images, define your placeholder image
 
-```yaml
+```dart
 void main() {
   Imager.placeholderPath = 'assets/placeholder.png';
   runApp(const MyApp());
@@ -36,7 +37,7 @@ void main() {
 
 3. Load your image using `Imager` utility class
 
-```yaml
+```dart
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
