@@ -1,7 +1,7 @@
 name: imager
-description: A new Flutter project.
+description: Flutter package to conveniently work with image widgets which comes from network, local, file and memory
 version: 0.0.1
-homepage:
+homepage: https://github.com/javaherisaber/imager.git
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -17,5 +17,3 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-
-flutter:

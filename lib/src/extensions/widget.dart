@@ -2,8 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/// Extensions on top of the [Widget] class
 extension WidgetExtensions on Widget {
-  /// enable Mirror widget
+  /// Transform your widget and make it mirrored
   Widget makeMirror(bool enableMirror) {
     return enableMirror
         ? Transform(

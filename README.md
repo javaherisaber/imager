@@ -1,39 +1,54 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# imager
+[![pub package](https://img.shields.io/pub/v/imager.svg)](https://pub.dev/packages/imager)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+Flutter package to conveniently work with image widgets which comes from network, local, file and memory
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+[banner](banner.png)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- Load images from Network, Local, Memory and File sources (plus DecorationImage for Container widget)
+- Cache network images using [cached_network_image](https://pub.dev/packages/cached_network_image) package
+- Show svg pictures using [flutter_svg](https://pub.dev/packages/flutter_svg) package
+- Ability to add decoration and make your image curved and use other shapes
+- Web friendly
+- Support Padding and Margin
+- Mirror your image
+- Circle image
+- Choosing proper widget based on source type (eg. svg, png, gif,...)
 
 ## Usage
+1. To use this plugin, add [imager](https://pub.dev/packages/imager/install) as a dependency in your pubspec.yaml file.
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  imager: ^lastVersion
 ```
 
-## Additional information
+2. For network images, define your placeholder image
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```yaml
+void main() {
+  Imager.placeholderPath = 'assets/placeholder.png';
+  runApp(const MyApp());
+}
+```
+
+3. Load your image using `Imager` utility class
+
+```yaml
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Center(
+      child: Imager.fromNetwork('https://docs.flutter.dev/assets/images/flutter-logo-sharing.png'),
+    ),
+  );
+ }
+}
+
+```
