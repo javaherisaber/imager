@@ -13,7 +13,7 @@ class Imager {
   static const BoxDecoration _circle = BoxDecoration(
     shape: BoxShape.circle,
   );
-  static String placeholderPath = 'assets/drawable/placeholder.png';
+  static String? placeholderPath;
 
   /// Create an image from memory with [bytes]
   ///
@@ -158,17 +158,21 @@ class Imager {
       bool enableMirror = false}) {
     double? measuredHeight = height ?? (backOffSizing ? width : null);
     double? measuredWidth = width ?? (backOffSizing ? height : null);
-    Widget placeholderImage = fromLocal(
-      placeholder ?? placeholderPath,
-      width: width,
-      height: height,
-      decoration: decoration,
-      padding: padding,
-      margin: margin,
-      isCircle: isCircle,
-      fit: placeholderFit,
-      backOffSizing: backOffSizing,
-    );
+    final placeholderAssetPath = placeholder ?? placeholderPath;
+    Widget placeholderImage = const Icon(Icons.image, size: 48);
+    if (placeholderAssetPath != null) {
+      placeholderImage = fromLocal(
+        placeholderAssetPath,
+        width: width,
+        height: height,
+        decoration: decoration,
+        padding: padding,
+        margin: margin,
+        isCircle: isCircle,
+        fit: placeholderFit,
+        backOffSizing: backOffSizing,
+      );
+    }
     Widget emptySpace = SizedBox(
       height: measuredHeight,
       width: measuredWidth,
